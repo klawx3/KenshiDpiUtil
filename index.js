@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const discord_token = 'MzY3MDAwMTEyMzUxNjc0Mzc4.DL1DHA.VMfYtgT7jiHCo-qB-7CNfCzbQhw';
+const discord_token = 'secret';
 
 const resolutions = [
     {"width": 1280, "height": 720},
