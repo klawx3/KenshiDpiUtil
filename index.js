@@ -101,9 +101,11 @@ client.on('message', msg => {
     }
 });
 
-fs.readFile(dFilePath,{encoding : 'utf-8'}, function(err,data){
+fs.readFile(dFilePath,"utf8", function(err,data){
     if(!err){
-        client.login(data); // discord token
+	console.log("File read success!");
+	token = data.toString().trim();
+        client.login(token); // discord token
     }else{
         console.log("Error. please create a file '" + discordCodeFile + "' in your app folder with your raw API code");
         process.exit(1);
