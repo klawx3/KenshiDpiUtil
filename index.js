@@ -1,6 +1,9 @@
+const fs = require('fs');
+const path = require('path');
+const discordCodeFile = 'discord.token';
+const dFilePath = path.join(__dirname,discordCodeFile);
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const discord_token = 'MzY3MDAwMTEyMzUxNjc0Mzc4.DQE46Q.FozZOvBx3tUntNCLBvQMV-9JZEg';
 
 const resolutions = [
     {"width": 1280, "height": 720},
@@ -97,8 +100,16 @@ client.on('message', msg => {
         }        
     }
 });
+
+fs.readFile(dFilePath,{encoding : 'utf-8'}, function(err,data){
+    if(!err){
+        client.login(data); // discord token
+    }else{
+        console.log("Error. please create a file '" + discordCodeFile + "' in your app folder with your raw API code");
+        process.exit(1);
+    }
+});
   
-client.login(discord_token);
 
 
 
